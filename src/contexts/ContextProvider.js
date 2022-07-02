@@ -19,8 +19,28 @@ const initialState = {
 export const ContextProvider = ({ children }) => {
   const [activeMenu, setActiveMenu] = useState(true);
 
+  const [isClicked, setIsClicked] = useState(initialState);
+
+  //setIsClicked is object, we can't overwrite object with just a clicked string
+  //open the object, spread the initialState, inside [] only change clicked
+  const handleClick = (clicked) => {
+    setIsClicked({ ...initialState, [clicked]: true });
+  };
+
+  const [screenSize, setScreenSize] = useState(undefined);
+
   return (
-    <StateContext.Provider value={{ activeMenu, setActiveMenu }}>
+    <StateContext.Provider
+      value={{
+        activeMenu,
+        setActiveMenu,
+        isClicked,
+        setIsClicked,
+        handleClick,
+        screenSize,
+        setScreenSize,
+      }}
+    >
       {children}
     </StateContext.Provider>
   );
