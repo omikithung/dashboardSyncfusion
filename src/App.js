@@ -1,3 +1,5 @@
+//using tailwind extension slowed visual studio
+
 import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Router } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
